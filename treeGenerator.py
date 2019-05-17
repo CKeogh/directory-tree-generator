@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 from os import path, listdir
 from colorama import Fore, init, deinit, Style
