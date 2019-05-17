@@ -19,3 +19,22 @@ simply call the the treeGenerator.py script in the command line with the directo
 ```
 python3 treeGenerator.py /path/to/directory
 ```
+
+## Output
+
+The command line output should look like the example:
+
+```console
+Absolute Path:  /absolute/path/to/tree-test
+
+tree-test
+└──2ndLayerDir1
+│      └──3rdLayerFile1.txt
+└──2ndLayerDir2
+│      └──3rdLayerFile1.txt
+│      └──3rdLayerDir1
+│      │      └──4thLayerFile1.txt
+│      └──3rdLayerFile2.txt
+└──2ndLayerFile2.txt
+└──2ndLayerFile1.txt
+```
