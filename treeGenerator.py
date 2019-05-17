@@ -9,19 +9,23 @@ parser.add_argument('path', metavar='path/to/directory', type=str,
 args = parser.parse_args()
 
 
-def createTree(filePath):
+def createTree(filePath, depth):
     if (not path.exists(filePath)):
         return 'Error: Invalid path'
 
+    lines = '└──' if depth == 0 else '│      ' * (depth - 1) + '└──'
+
+    # base case
     if (path.isfile(filePath)):
-        return '-' + path.basename(filePath)
+        return lines + path.basename(filePath) + '\n'
 
-    treeString = path.basename(filePath) + '\n'
+    # directory string
+    treeString = lines + path.basename(filePath) + '\n'
+
     for item in listdir(filePath):
-
-        treeString += '|' + createTree(filePath + '/' + item) + '\n'
+        treeString += createTree(filePath + '/' + item, depth + 1)
 
     return treeString
 
 
-print(createTree(args.path))
+print(createTree(args.path, 0))
